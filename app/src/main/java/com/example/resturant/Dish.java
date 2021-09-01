@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey;
 public class Dish {
 
    @PrimaryKey
-   public int taskId;
+   public int dishId;
 
    @ColumnInfo(name = "name")
    public String name;
@@ -17,11 +17,13 @@ public class Dish {
    public String ingrediants;
 
    @ColumnInfo(name = "price")
-   public double price;
+   public String  price;
 
-   public Dish(String name, String ingrediants, double price) {
+   public Dish(String name, String ingrediants, String price) {
       this.name = name;
       this.ingrediants = ingrediants;
       this.price = price;
    }
+
+
 }

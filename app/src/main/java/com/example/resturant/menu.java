@@ -1,13 +1,18 @@
 package com.example.resturant;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class menu extends AppCompatActivity {
+import java.util.List;
+
+public class menu extends AppCompatActivity{
+
+    AppDatabase appDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +32,11 @@ public class menu extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        appDatabase =  Room.databaseBuilder(getApplicationContext(), AppDatabase.class,
+                "menu").allowMainThreadQueries()
+                .build();
+        List<Dish> allDishes =appDatabase.dishDao().getAll();
 
     }
 }

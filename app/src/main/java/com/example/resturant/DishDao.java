@@ -14,7 +14,7 @@ public interface DishDao {
     List<Dish> getAll();
 
     @Insert
-    void insertAll(Dish...dishes);
+    void insertAll(Dish...dishs);
 
     @Delete
     void deleteAll(Dish dish);
