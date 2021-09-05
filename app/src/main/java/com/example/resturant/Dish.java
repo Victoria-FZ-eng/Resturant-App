@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey;
 @Entity
 public class Dish {
 
-   @PrimaryKey
+   @PrimaryKey(autoGenerate = true)
    public int dishId;
 
    @ColumnInfo(name = "name")

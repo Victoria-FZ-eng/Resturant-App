@@ -19,6 +19,7 @@
         app:layout_constraintVertical_bias="0.903" />
 
     <TextView
+        style="@style/CustomText"
         android:id="@+id/textView2"
         android:layout_width="110dp"
         android:layout_height="24dp"
@@ -30,6 +31,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        style="@style/CustomText"
         android:id="@+id/textView3"
         android:layout_width="95dp"
         android:layout_height="30dp"
@@ -41,11 +43,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        style="@style/CustomText"
         android:id="@+id/textView4"
         android:layout_width="104dp"
         android:layout_height="27dp"
         android:layout_marginTop="240dp"
-        android:text="Ingrediant"
+        android:text="Ingredient"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.114"
         app:layout_constraintStart_toStartOf="parent"

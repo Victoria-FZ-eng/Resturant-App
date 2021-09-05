@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class addDish extends AppCompatActivity {
     AppDatabase appDatabase;
@@ -36,16 +37,12 @@ public class addDish extends AppCompatActivity {
             Dish dish = new Dish(dishName.getText().toString(),dishIngrediants.getText().toString()
             ,dishPrice.getText().toString());
             appDatabase =  Room.databaseBuilder(getApplicationContext(), AppDatabase.class,
-                    "menu").allowMainThreadQueries()
+                    "dishDatabase").allowMainThreadQueries()
                     .build();
             DishDao dishDao=appDatabase.dishDao();
-
             dishDao.insertAll(dish);
-            System.out.println("/////////////////////////////");
-            System.out.println("********************************************");
-            System.out.println(dishName.getText().toString());
-            System.out.println("********************************************");
             Intent menuPage = new Intent(addDish.this,menu.class);
+            Toast.makeText(getApplicationContext(),"Added Successfully!",Toast.LENGTH_LONG).show();
             startActivity(menuPage);
 
 

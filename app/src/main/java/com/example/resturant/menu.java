@@ -1,6 +1,8 @@
 package com.example.resturant;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
 import android.content.Intent;
@@ -10,7 +12,7 @@ import android.widget.Button;
 
 import java.util.List;
 
-public class menu extends AppCompatActivity{
+public class menu extends AppCompatActivity {
 
     AppDatabase appDatabase;
 
@@ -34,9 +36,15 @@ public class menu extends AppCompatActivity{
         });
 
         appDatabase =  Room.databaseBuilder(getApplicationContext(), AppDatabase.class,
-                "menu").allowMainThreadQueries()
+                "dishDatabase").allowMainThreadQueries()
                 .build();
         List<Dish> allDishes =appDatabase.dishDao().getAll();
+
+        RecyclerView allDishesRecyclerView = findViewById(R.id.recyclerView);
+
+        allDishesRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        allDishesRecyclerView.setAdapter(new DishAdapter(allDishes));
 
     }
 }
